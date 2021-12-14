@@ -1,10 +1,14 @@
-from django.shortcuts import render
+# from django.shortcuts import render
+from django.http import HttpResponse
 
-def index(render):
-    return 'index'
 
-def group(render):
-    return 'group'
+def index(request):
+    return HttpResponse('Главная страница')
 
-def group_posts(render):
-    return 'group_posts'
+
+def group(request):
+    return HttpResponse('Список групп')
+
+
+def group_posts(request, slug):
+    return HttpResponse(f'Группа {slug}')
