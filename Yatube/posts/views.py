@@ -1,3 +1,10 @@
 from django.shortcuts import render
 
-# Create your views here.
+def index(render):
+    return 'index'
+
+def group(render):
+    return 'group'
+
+def group_posts(render):
+    return 'group_posts'
