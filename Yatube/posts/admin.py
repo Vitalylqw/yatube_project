@@ -15,18 +15,16 @@ class PostsAdmin(admin.ModelAdmin):
     empty_value_display = '-пусто-'
 
 
-
-
 admin.site.register(Post, PostsAdmin)
 
 
 class GroupAdmin(admin.ModelAdmin):
     # Перечисляем поля, которые должны отображаться в админке
-    list_display = ('pk', 'name', 'address', 'description')
+    list_display = ('pk', 'name', 'slug', 'description')
     # Добавляем интерфейс для поиска по тексту постов
     search_fields = ('name', 'description')
     # Добавляем возможность фильтрации по дате
-    list_filter = ('address',)
+    list_filter = ('slug',)
     # Это свойство сработает для всех колонок: где пусто — там будет эта строка
     empty_value_display = '-пусто-'
 

@@ -2,14 +2,14 @@
 {% extends 'base.html' %}
 
 {% block title %}
-  {{group.name}}
+  Записи сообщества {{ group.name }}
 {% endblock %}
 
 {% block main %}
-  <!-- класс py-5 создает отступы сверху и снизу блока -->
       <div class="container py-5">
-        <h1>{{group.name}}</h1>
-          {% for post in posts %}
+        <h1>{{ group.name }}</h1>
+        {% for post in posts %}
+          <article>
             <ul>
               <li>
                 Автор: {{ post.author.get_full_name }}
@@ -19,7 +19,9 @@
               </li>
             </ul>
             <p>{{ post.text }}</p>
-            <a href="{% url 'posts:group_list' group.address  %}">все записи группы</a>
+            <a href="{% url 'posts:group_list' group.slug %}"
+            >все записи группы</a>
+            </article>
             {% if not forloop.last %}<hr>{% endif %}
           {% endfor %}
         <!-- под последним постом нет линии -->

@@ -6,11 +6,11 @@ User = get_user_model()
 
 class Group (models.Model):
     name = models.CharField(max_length=200)
-    address = models.SlugField()
+    slug = models.SlugField()
     description = models.TextField()
 
     def __str__(self):
-        return self.address
+        return self.slug
 
 
 class Post(models.Model):
@@ -28,5 +28,3 @@ class Post(models.Model):
         blank=True,
         null=True
     )
-
-
